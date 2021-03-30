@@ -1,3 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 
-# Create your views here.
+def user_profile(request, username):
+    context = {
+        'User': get_user_model().objects.get(username=username),
+    }
+    return render(request, 'accounts/profile.html', context)
