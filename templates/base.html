@@ -1,39 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>あつまれ司法書士</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  {% block link %}
-  {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="ja">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {% block meta_tag %}{% endblock %}
+    <link href="{% static 'css/semantic.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+    <title>
+        {% block title %}あつまれ未来の司法書士{% endblock %}
+    </title>
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
-      <span class="sr-only">メニュー</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a href="#" class="navbar-brand">司法書士受験生SNS</a>
-  </div>
-
-  <div id="gnavi" class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="{% url 'accounts:profile' request.user.username %}">プロフィール</a></li>
-    </ul>
-  </div>
-</nav>
-
-{% block content %}
-
-{% endblock %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <div class="ui stackable inverted menu">
+        <a href="{% url 'snsapp:top' %}" class="header item">
+            司法書士受験生
+        </a>
+        <a href="{% url 'snsapp:about' %}" class="item">
+            このサイトはなに？
+        </a>
+        <a class="item" href="{% url 'thread:create_topic' %}">
+            トピック作成
+        </a>
+        <div class="right menu">
+            <a class="item">
+                Log in
+            </a>
+            <a class="item">
+                Sign up
+            </a>
+        </div>
+    </div>
+    
+    <div class="ui container" style="min-height:100vh;">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="ui inverted stackable footer segment">
+        <div class="ui container center aligned">
+            <div class="ui horizontal inverted small divided link list">
+                <a href="{% url 'snsapp:top' %}" class="item">© 2019 司法書士の受験生の集合場所</a>
+                <a href="{% url 'snsapp:terms' %}" class="item">利用規約</a>
+                <a href="{% url 'snsapp:policy' %}" class="item">プライバシーポリシー</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/semantic.js' %}"></script>
+    {% block js %}{% endblock %}
 </body>
-</html>
+

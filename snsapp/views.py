@@ -1,20 +1,21 @@
-from django.shortcuts import render, redirect
-from .forms import PostCreateForm
-from .models import Post
-# Create your views here.
+from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
+from thread.models import Topic
 
-def post_list(request):
-    context = {
-      'post_list': Post.objects.all(),
-    }
-    return render(request, 'post/list.html', context)
 
-def post_create(request):
-    if request.method == "POST":
-        form = PostCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('snsapp:post_list')
-    else:
-        form = PostCreateForm()
-    return render(request, 'post/create.html', {'form': form})
+def top(request):
+    ctx = {'title': '集まれ司法書士'}
+    return render(request, 'app1/top.html', ctx)
+
+class TopView(TemplateView):
+    template_name = 'app1/top.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['title'] = '集まれ司法書士'
+        return ctx
+
+class TopicListView(ListView):
+    template_name = 'app1/top.html'
+    queryset = Topic.objects.order_by('-created')
+    context_object_name = 'topic_list'
