@@ -3,6 +3,7 @@ from django.views.generic import CreateView, FormView, DetailView, TemplateView,
 from django.urls import reverse_lazy
 from . forms import TopicCreateForm, TopicModelForm, TopicForm, CommentModelForm
 from . models import Topic, Category, Comment
+from django.db.models import Count
 
 class TopicAndCommentView(FormView):
     template_name = 'thread/detail_topic.html'
@@ -13,7 +14,12 @@ class TopicAndCommentView(FormView):
         # comment.topic = Topic.objects.get(id=self.kwargs['pk'])
         # comment.no = Comment.objects.filter(topic=self.kwargs['pk']).count() + 1
         # comment.save()
-        form.save_with_topic(self.kwargs.get('pk'))
+        # form.save_with_topic(self.kwargs.get('pk'))
+        Comment.objects.create_comment(
+            user_name=form.cleaned_data['user_name'],
+            message=form.cleaned_data['message'],
+            topic_id=self.kwargs['pk'],
+        )
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -22,7 +28,7 @@ class TopicAndCommentView(FormView):
     def get_context_data(self):
         ctx = super().get_context_data()
         ctx['topic'] = Topic.objects.get(id=self.kwargs['pk'])
-        ctx['comment_list'] = Comment.objects.filter(topic_id=self.kwargs['pk']).order_by('no')
+        ctx['comment_list'] = Comment.objects.filter(topic_id=self.kwargs['pk']).annotate(vote_count=Count('vote')).order_by('no')
         return ctx
 
 class CategoryView(ListView):

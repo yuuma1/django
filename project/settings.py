@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'snsapp',
     'thread',
+    'api',
 ]
 
 INTERNAL_IPS = [

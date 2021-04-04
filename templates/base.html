@@ -39,7 +39,7 @@
     <div class="ui inverted stackable footer segment">
         <div class="ui container center aligned">
             <div class="ui horizontal inverted small divided link list">
-                <a href="{% url 'snsapp:top' %}" class="item">© 2019 司法書士の受験生の集合場所</a>
+                <a href="{% url 'snsapp:top' %}" class="item">© 2022 司法書士の受験生の集合場所</a>
                 <a href="{% url 'snsapp:terms' %}" class="item">利用規約</a>
                 <a href="{% url 'snsapp:policy' %}" class="item">プライバシーポリシー</a>
             </div>
@@ -47,6 +47,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="{% static 'js/semantic.js' %}"></script>
-    {% block js %}{% endblock %}
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    {% block js %}
+    {% endblock %}
 </body>
 
