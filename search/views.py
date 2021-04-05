@@ -26,5 +26,5 @@ class SearchResultView(ListView):
         return ctx
         
     def parse_search_params(self, words: str):
-        search_words = words.replace('　', ' ').split()
+        search_words = words.replace(' ', ' ').split()
         return search_words
