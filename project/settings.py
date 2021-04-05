@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'bootstrap4',
     'snsapp',
     'thread',
     'api',
+    'search',
 ]
 
 INTERNAL_IPS = [

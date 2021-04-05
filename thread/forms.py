@@ -7,6 +7,7 @@ class CommentModelForm(forms.ModelForm):
         model = Comment
         fields = [
             'user_name',
+            'image',
             'message',
         ]
 

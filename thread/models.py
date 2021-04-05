@@ -5,7 +5,11 @@ class TopicManager(models.Manager):
     pass
 
 class CommentManager(models.Manager):
-    pass
+    def create_comment(self, user_name, message, topic_id, image=None):
+        comment = self.model(user_name=user_name, message=message, image=image)
+        comment.topic = Topic.objects.get(id=topic_id)
+        comment.no = self.filter(topic_id=topic_id).count() + 1
+        comment.save()
 
 class CategoryManager(models.Manager):
     pass
@@ -38,6 +42,13 @@ class Comment(models.Model):
     user_name = models.CharField('名前', max_length=30, null=True, blank=False,)
     topic = models.ForeignKey(Topic, on_delete=models.PROTECT,)
     message = models.TextField(verbose_name='投稿内容')
+    image = models.ImageField(
+        verbose_name='投稿画像',
+        # validators=[FileExtensionValidator(['jpg', 'png'])],
+        upload_to='images/',
+        null=True,
+        blank=True,
+    )
     pub_flg = models.BooleanField(default=True,)
     created = models.DateTimeField(auto_now_add=True,)
     objects = CommentManager()
