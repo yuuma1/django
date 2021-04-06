@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from . forms import TopicCreateForm, TopicModelForm, TopicForm, CommentModelForm
 from . models import Topic, Category, Comment
 from django.db.models import Count
-     
+from django.core.mail import send_mail, EmailMessage    
 
 class TopicAndCommentView(FormView):
     template_name = 'thread/detail_topic.html'
@@ -80,7 +80,6 @@ class TocicCreateViewBySession(FormView):
                 form = self.form_class(request.session['input_data'])
                 form.save()
                 request.session.pop('input_data') # セッションに保管した情報の削除
-              
                 return redirect(reverse_lazy('snsapp:top'))
         elif request.POST.get('next', '') == 'confirm':
             form = TopicModelForm(request.POST)
