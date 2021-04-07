@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 
 
 class TopicManager(models.Manager):
@@ -24,6 +25,8 @@ class Category(models.Model):
         return self.name
         
 class Topic(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,)
+    email = models.EmailField(verbose_name='メールアドレス', null=True, blank=True,)
     user_name = models.CharField('名前', max_length=30, null=True, blank=False,)
     title = models.CharField('タイトル', max_length=255, null=False, blank=False,)
     message = models.TextField(verbose_name='本文', null=True, blank=False,)
@@ -31,12 +34,20 @@ class Topic(models.Model):
     , null=True, blank=False,)
     created = models.DateTimeField(auto_now_add=True,)
     modified = models.DateTimeField(auto_now=True,)
+    image = models.ImageField(
+        verbose_name='投稿画像',
+        upload_to='images/',
+        null=True,
+        blank=True,
+    )
     objects = TopicManager()
 
     def __str__(self):
         return self.title
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,)
+    email = models.EmailField(verbose_name='メールアドレス', null=True, blank=True,)
     id =  models.BigAutoField(primary_key=True,)
     no = models.IntegerField(default=0,)
     user_name = models.CharField('名前', max_length=30, null=True, blank=False,)
