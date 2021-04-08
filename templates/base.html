@@ -9,7 +9,13 @@
     {% block css %}{% endblock %}
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="./../../static/css/styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <title>
+
         {% block title %}あつまれ未来の司法書士{% endblock %}
     </title>
 </head>
@@ -24,6 +30,11 @@
         <a class="item" href="{% url 'thread:create_topic' %}">
             トピック作成
         </a>
+        {% if user.is_authenticated %}
+        <a class="item" href="{% url 'snsapp:todo'%}">
+            ToDoリスト
+        </a>
+        {% endif %}
         <div class="right menu">
             {% if user.is_authenticated %}
             <a class="item" href="{% url 'accounts:profile' %}">ユーザー情報</a>
@@ -52,7 +63,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="{% static 'js/semantic.js' %}"></script>
-    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    {% comment %} <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script> {% endcomment %}
     {% block js %}
     {% endblock %}
 </body>

@@ -7,6 +7,9 @@ def top(request):
     ctx = {'title': '集まれ司法書士'}
     return render(request, 'app1/top.html', ctx)
 
+def todo(request):
+    return render(request, 'app1/todo.html')
+
 class TopView(TemplateView):
     template_name = 'app1/top.html'
 
