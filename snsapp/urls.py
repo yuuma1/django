@@ -10,4 +10,5 @@ urlpatterns = [
     path('policy/', TemplateView.as_view(template_name='app1/policy.html'), name='policy'),
     path('about/', TemplateView.as_view(template_name='app1/about.html'), name='about'),
     path('todo/', views.todo, name='todo'), 
+  
 ]

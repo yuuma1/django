@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}このサイトはなに？ - {{ block.super }}{% endblock %}
+{% block css %}<link rel="stylesheet" href="./../../static/css/styles.css">{% endblock %} 
 {% block content %}
 <div class="ui grid stackable">
     <div class="eleven wide column">
@@ -18,11 +19,11 @@
 
             return (
               <h1>
+                Todoリスト
+                <span>({remaining.length}/{props.todos.length})</span>
                 <div className="pp">
                 <button onClick={props.purge}>チェックを削除</button>
                 </div>
-                Todoリスト
-                <span>({remaining.length}/{props.todos.length})</span>
               </h1>
             );
           }
@@ -195,20 +196,7 @@
             document.getElementById('root')
           );
         })();
-      </script>
-
-    <div class="ui container" style="min-height:100vh;">
-    </div>
-    <div class="ui inverted stackable footer segment">
-        <div class="ui container center aligned">
-            <div class="ui horizontal inverted small divided link list">
-                <a href="{% url 'snsapp:top' %}" class="item">© 2022 司法書士の受験生の集合場所</a>
-                <a href="{% url 'snsapp:terms' %}" class="item">利用規約</a>
-                <a href="{% url 'snsapp:policy' %}" class="item">プライバシーポリシー</a>
-            </div>
-        </div>
-    </div>
-        
+      </script>    
     </div>
     {% include 'app1/sidebar.html' %}
 </div>

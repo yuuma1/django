@@ -13,12 +13,6 @@ body {
   font-size: 40px;
   border-bottom: 1px solid #ddd;
   padding: 16px 0;
-}
-
-.pp {
-  font-size: 15px;
-  display: inline-block;
-  float: right;
   
 }
 
@@ -45,13 +39,13 @@ body {
 }
 
 .container input[type="text"] {
-  padding: 8px;
+  padding:6px;
   margin-right: 5px;
 }
 
 .container input[type="submit"] {
   display: inline-block;
-  padding: 0.4em 1em;
+  padding: 0.3em 0.8em;
   text-decoration: none;
   background: #4e81ee;/*ボタン色*/
   color: #fff;
@@ -76,7 +70,7 @@ h1 > span {
 }
 
 h1 > button {
-  float: right;
+  display: inline-block;
 }
 
 .done {
@@ -106,3 +100,7 @@ button:active {
   opacity: 0.4;
 }
 
+.pp {
+  font-size: 15px;
+  float: right;
+}

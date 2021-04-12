@@ -10,7 +10,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css' %}">
 
-    <link rel="stylesheet" href="./../../static/css/styles.css">
+    {% comment %} <link rel="stylesheet" href="./../../static/css/styles.css"> {% endcomment %}
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -35,6 +35,13 @@
             ToDoリスト
         </a>
         {% endif %}
+
+        {% if user.is_authenticated %}
+        <a class="item" href="{% url 'news:news'%}">
+            ニュース
+        </a>
+        {% endif %}
+
         <div class="right menu">
             {% if user.is_authenticated %}
             <a class="item" href="{% url 'accounts:profile' %}">ユーザー情報</a>
@@ -67,4 +74,5 @@
     {% block js %}
     {% endblock %}
 </body>
+</html>
 

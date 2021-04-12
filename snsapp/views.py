@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, ListView
 from thread.models import Topic
 from django.utils import timezone
 
+
+
 def top(request):
     ctx = {'title': '集まれ司法書士'}
     return render(request, 'app1/top.html', ctx)
@@ -18,8 +20,6 @@ class TopView(TemplateView):
         ctx['title'] = '集まれ司法書士'
         return ctx
 
-
-from django.utils import timezone
 
 class TopicListView(ListView):
     template_name = 'app1/top.html'
