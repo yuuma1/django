@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'search',
     'accounts',
     'newsapi',
-    'news',
 ]
 
 INTERNAL_IPS = [

@@ -6,6 +6,7 @@ class LoginedUserCommentModelForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = [
+            'user_name',
             'message',
             'image',
         ]
@@ -28,7 +29,7 @@ class CommentModelForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = [
-            # 'user_name',
+            'user_name',
             'image',
             'message',
         ]
@@ -66,7 +67,6 @@ class TopicModelForm(forms.ModelForm):
         model=Topic
         fields=[
             'title',
-            # 'user_name',
             'category',
             'message',
         ]

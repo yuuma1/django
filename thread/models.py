@@ -55,7 +55,6 @@ class Comment(models.Model):
     message = models.TextField(verbose_name='投稿内容')
     image = models.ImageField(
         verbose_name='投稿画像',
-        # validators=[FileExtensionValidator(['jpg', 'png'])],
         upload_to='images/',
         null=True,
         blank=True,
