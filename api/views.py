@@ -3,6 +3,8 @@ from django.http import JsonResponse
 
 from thread.models import Vote
 
+# newsapiです
+
 class CreateVoteView(View):
   
     def post(self, request, *args, **kwargs):

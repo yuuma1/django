@@ -6,6 +6,8 @@ from django.views import generic
 from django.conf import settings
 from newsapi import NewsApiClient
 
+# アプリケーション
+
 class IndexView(generic.TemplateView):
     template_name = "app1/news.html"
 

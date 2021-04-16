@@ -7,6 +7,8 @@ from django.db.models import Count
 from django.core.mail import send_mail, EmailMessage    
 from django.template.loader import get_template
 
+# スレッド
+
 class CategoryView(ListView):
     template_name = 'thread/category.html'
     context_object_name = 'topic_list'

@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView, UpdateView
-# from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordResetView, PasswordChangeView, PasswordChangeDoneView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView, LoginView, LogoutView     
 from django.urls import reverse_lazy
 from django.contrib.auth import login, authenticate
 from .models import User
 from .forms import UserInfoChangeForm, CustomAuthenticationForm, CustomPasswordChangeForm, CustomPasswordResetForm, CustomSetPasswordForm, CustomUserChangeForm, CustomUserCreationForm, EmailChangeForm
+
+# アカウント機能
 
 class UserCreateView(FormView):
     form_class = CustomUserCreationForm
