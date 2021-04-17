@@ -14,7 +14,7 @@
 言語/フレームワーク
  * HTML
  * CSS
- * Jquery
+ * JQuery
  * react
  * python/django3.1.7
 # データベース
