@@ -39,6 +39,6 @@
  
 # 
  
-![IMG_9560](https://user-images.githubusercontent.com/71582944/115111798-01a29680-9fbd-11eb-87eb-f32b6bbd86c0.GIF)![Uploading IMG_9560.GIF…]()
+![IMG_9560](https://user-images.githubusercontent.com/71582944/115111798-01a29680-9fbd-11eb-87eb-f32b6bbd86c0.GIF)
 
 
