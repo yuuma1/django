@@ -1,55 +1,42 @@
-"hoge"が何かを簡潔に紹介する
+
+# 概要
  
-# DEMO
+このサイトは司法書士受験生が交流する場所です。
+
+講師に質問できない時や、勉強仲間が欲しいときに役立ちます。
+
+会員登録をすると、ToDoアプリ機能と最新ニュース
+
+機能を使うことができます。
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+# 機能・使用技術一覧
  
-# Features
+言語/フレームワーク
+ * HTML
+ * CSS
+ * Jquery
+ * react
+ * python/django3.1.7
+データベース
+ * MySQL
+インフラ(予定）
+ * AWS EC2
+ * Route53
+ * S3
+ * CloudFront
+ * SES
  
-"hoge"のセールスポイントや差別化などを説明する
+# 機能一覧
  
-# Requirement
+* ユーザー認証
+* トピック作成
+* 検索機能
+* ToDoリスト(React)
+* コメント
+* いいね機能
+* ニュース(newsapi)
+* パスワード変更
  
-"hoge"を動かすのに必要なライブラリなどを列挙する
+# 
  
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
-```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
- 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
- 
-# Note
- 
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+![Uploading IMG_9560.GIF…]()
