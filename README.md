@@ -17,7 +17,7 @@
  * Jquery
  * react
  * python/django3.1.7
-データベース
+#データベース
  * MySQL
 インフラ(予定）
  * AWS EC2
