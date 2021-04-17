@@ -95,8 +95,11 @@ DATABASES = {
         'USER': 'root',
         'HOST': '',
         'PORT': '',
+        # 'PASSWORD': 'password',
     }
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Password validation
