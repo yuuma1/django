@@ -27,8 +27,8 @@ SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["54.178.150.96"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["54.178.150.96"]
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sample',
+        'NAME': 'aws_and_infra',
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
