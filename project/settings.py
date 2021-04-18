@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'aws_and_infra',
         'USER': 'aws_and_infra', # 'root',
         'PASSWORD': 'password',
-        'HOST': '',
+        'HOST': '%',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
