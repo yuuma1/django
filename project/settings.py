@@ -27,8 +27,8 @@ SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["54.178.150.96"]
-
+# ALLOWED_HOSTS = ["54.178.150.96"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -91,12 +91,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
+        'NAME': 'sample',
         'USER': 'root',
-        'HOST': 'localhost',
-        'PORT': '3306',
         'PASSWORD': 'password',
-    }
+        'HOST': 'localhost',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+   }
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
