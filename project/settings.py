@@ -92,9 +92,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'aws_and_infra',
-        'USER': 'root',
+        'USER': 'aws_and_infra', # 'root',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': '%', #'localhost',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
