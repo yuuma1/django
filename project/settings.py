@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 from . import newsapi
+import dj_database_url
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,13 +28,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
+
+# SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ["54.178.150.96"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -62,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -90,16 +98,13 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sample',
-        'USER':  'root', 
-        'PASSWORD': 'password',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': '',
+        'HOST': 'host',
         'PORT': '',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-   }
+    }
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -142,7 +147,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -154,3 +159,11 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'accounts.User'
 
 NEWSAPI = newsapi.NEWS_API
+
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku 
+    django_heroku.settings(locals()) 
+
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(db_from_env)
