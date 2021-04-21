@@ -55,15 +55,13 @@ class User(AbstractBaseUser, PermissionsMixin):
         _('username'),
         max_length=50,
         unique=True,
-        # help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
         help_text='この項目は必須です。全角文字、半角英数字、@/./+/-/_ で50文字以下にしてください。',
         validators=[username_validator],
         error_messages={
             'unique': _("A user with that username already exists."),
         },
     )
-    # first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    # last_name = models.CharField(_('last name'), max_length=150, blank=True)
+
     email = models.EmailField(
         _('email address'),
         help_text='この項目は必須です。メールアドレスは公開されません。',
@@ -93,24 +91,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
-        # abstract = True
         abstract = False
 
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
-
-    # first_nameとlast_nameに関する部分はコメントアウト
-    # def get_full_name(self):
-    #     """
-    #     Return the first_name plus the last_name, with a space in between.
-    #     """
-    #     full_name = '%s %s' % (self.first_name, self.last_name)
-    #     return full_name.strip()
-
-    # def get_short_name(self):
-    #     """Return the short name for the user."""
-    #     return self.first_name
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""

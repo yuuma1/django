@@ -1,5 +1,4 @@
 from django.forms import ModelForm
-# from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm, UserChangeForm, UserCreationForm
 from .models import User
 
@@ -8,8 +7,6 @@ class UserInfoChangeForm(ModelForm):
         model = User
         fields = [
             'email',
-            # 'last_name',
-            # 'first_name',
         ]
 
     def __init__(self, email=None, first_name=None, last_name=None, *args, **kwargs):
@@ -70,14 +67,6 @@ class AdminUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email')
-    
-    # def save(self, commit=True):
-    #     user = User.objects.create_user(
-    #         self.cleaned_data["name"],
-    #         self.cleaned_data["email"],
-    #         self.cleaned_data["password1"],
-    #     )
-    #     return user
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:

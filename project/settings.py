@@ -92,10 +92,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sample',
-        'USER':  'root', #'aws_and_infra', 
+        'USER':  'root', 
         'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'HOST': '',
+        'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
@@ -137,9 +137,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

@@ -39,13 +39,15 @@ class EmailChangeView(LoginRequiredMixin, FormView):
     template_name = 'registration/change.html'
     form_class = EmailChangeForm
     success_url = reverse_lazy('accounts:profile')
-
-    def form_invalid(self, form):
+    
+    def form_valid(self, form):
+        #formのupdateメソッドにログインユーザーを渡して更新
         form.update(user=self.request.user)
         return super().form_valid(form)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
+        # 更新前のユーザー情報をkwargsとして渡す
         kwargs.update({
             'email' : self.request.user.email,
         })
