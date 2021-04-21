@@ -1,0 +1,92 @@
+[
+  {
+      "model" : "thread.category",
+      "pk" : 1,
+      "fields" : {
+          "name" : "民法",
+          "url_code" : "low_1",
+          "sort" : 1
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 2,
+      "fields" : {
+          "name" : "刑法",
+          "url_code" : "low_2",
+          "sort" : 2
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 3,
+      "fields" : {
+          "name" : "憲法",
+          "url_code" : "low_3",
+          "sort" : 3
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 4,
+      "fields" : {
+          "name" : "会社法",
+          "url_code" : "low_4",
+          "sort" : 4
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 5,
+      "fields" : {
+          "name" : "民事訴訟法",
+          "url_code" : "low_5",
+          "sort" : 5
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 6,
+      "fields" : {
+          "name" : "不動産登記法",
+          "url_code" : "low_6",
+          "sort" : 6
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 7,
+      "fields" : {
+          "name" : "商業登記法",
+          "url_code" : "low_7",
+          "sort" : 7
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 8,
+      "fields" : {
+          "name" : "民事執行法・民事保全法",
+          "url_code" : "low_8",
+          "sort" : 8
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 9,
+      "fields" : {
+          "name" : "供託法",
+          "url_code" : "low_9",
+          "sort" : 9
+      }
+  },
+  {
+      "model" : "thread.category",
+      "pk" : 10,
+      "fields" : {
+          "name" : "司法書士法",
+          "url_code" : "low_10",
+          "sort" : 10
+      }
+  }
+]

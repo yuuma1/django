@@ -1,0 +1,1 @@
+NEWS_API = "70372f3de3b741cca428df161ff2d097"
