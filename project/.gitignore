@@ -1,7 +1,0 @@
-venv
-
-local_settings.py 
-__pycache__
-staticfiles
-db.sqlite3
-*.py[co]
