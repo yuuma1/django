@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 from . import newsapi
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +28,7 @@ SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 DEBUG = True
 
 # ALLOWED_HOSTS = ["54.178.150.96"]
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://desolate-coast-74342.herokuapp.com/', '127.0.0.1']
 
 # Application definition
 
