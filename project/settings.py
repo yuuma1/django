@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'sample',
         'USER':  'root', 
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
