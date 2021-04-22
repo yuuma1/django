@@ -28,7 +28,7 @@ SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 DEBUG = True
 
 # ALLOWED_HOSTS = ["54.178.150.96"]
-ALLOWED_HOSTS = ['desolate-coast-74342.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['desolate-coast-74342.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
