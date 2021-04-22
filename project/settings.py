@@ -25,10 +25,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hz@nusmlghmfq+voie@83@!n2%kodwhtg@1m(5xo+qn1z$6&0h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+try:
+    from project.local_settings import *
+except ImportError:
+    pass
+
+if not DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
 
 # ALLOWED_HOSTS = ["54.178.150.96"]
-ALLOWED_HOSTS = ['desolate-coast-74342.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ["djangoshihoshoshi.herokuapp.com"]
 
 # Application definition
 
@@ -100,7 +109,9 @@ DATABASES = {
    }
 }
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
